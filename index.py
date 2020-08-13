@@ -13,7 +13,7 @@ app.config.update(
 )
 
 
-def render_words(language: str = "en-gb"):
+def render_words(language: str = "en-us"):
     try:
         with open(f"languages/{language}.json") as f:
             all_words = json.load(f)
