@@ -1,0 +1,88 @@
+#render-text {
+  background: -webkit-linear-gradient(0deg,
+  rgba(255, 255, 255, 1) 0%,
+  rgba(255, 255, 255, 1) 50%,
+  rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  display: inline-block;
+  font-size: 32px;
+  font-weight: bold;
+  min-height: 40px;
+  min-width: 300px;
+  padding: 0 .1em;
+  position: relative;
+  white-space: pre;
+  width: 600px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+
+#render-text::after {
+  animation: 1s blink step-end infinite;
+  background: #ccc;
+  content: '';
+  height: 2px;
+  left: 3px;
+  position: absolute;
+  top: 38px;
+  width: 20px;
+}
+
+@keyframes blink {
+  from, top { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.title .flag-emoji {
+  width: 7.5rem;
+  margin-right: .25em;
+}
+
+#your-attempt {
+  background: #303030;
+  border: 2px solid #ccc;
+  margin: 2em auto;
+  width: 600px;
+  min-height: 100px;
+  padding: 10px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.typing-test-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.score p {
+  margin: 0 .5em;
+  font-weight: bold;
+}
+
+#your-typing {
+  position: absolute;
+  opacity: 0;
+}
+
+.wrong {
+  background-color: #e74c3c;
+  color: #fff;
+}
