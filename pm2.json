@@ -1,0 +1,8 @@
+{
+  "apps": [
+    {
+      "name":"TypingTest.py",
+      "script":"start.sh"
+    }
+  ]
+}
