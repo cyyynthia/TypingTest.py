@@ -6,7 +6,7 @@
         <section class="container">
             <h1>Choose a language:</h1>
             <div class="flex-grid">
-                {% for i in languages %}
+                {% for i in languages | sort(attribute="language") %}
                 <div class="col-xs-3 select-lang">
                     <a href="/languages/{{ i['language_url'] }}">
                         <img src="{{ i['emoji'] }}" class="image">

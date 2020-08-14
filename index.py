@@ -18,18 +18,19 @@ app.config.update(
 all_languages = {}
 words_language = {}
 for file in os.listdir("languages"):
-    with open(f"languages/{file}") as f:
-        lang_temp = json.load(f)
-        lang_name = file[:-5]
-        all_languages[lang_name] = {
-            "seconds": lang_temp["_SECONDS"], "errors": lang_temp["_ERRORS"],
-            "reset": lang_temp["_RESET"], "typing_test": lang_temp["_TYPING_TEST"],
-            "select_languages": lang_temp["_SELECT_LANGUAGES"],
-            "author": lang_temp["_author"], "emoji": lang_temp["emoji"],
-            "language": lang_temp["language"], "language_url": lang_name
-        }
+    if file.endswith(".json"):
+        with open(f"languages/{file}", encoding="utf-8") as f:
+            lang_temp = json.load(f)
+            lang_name = file[:-5]
+            all_languages[lang_name] = {
+                "seconds": lang_temp["_SECONDS"], "errors": lang_temp["_ERRORS"],
+                "reset": lang_temp["_RESET"], "typing_test": lang_temp["_TYPING_TEST"],
+                "select_languages": lang_temp["_SELECT_LANGUAGES"],
+                "author": lang_temp["_author"], "emoji": lang_temp["emoji"],
+                "language": lang_temp["language"], "language_url": lang_name
+            }
 
-        words_language[lang_name] = lang_temp["words"]
+            words_language[lang_name] = lang_temp["words"]
 
 
 def validate_language(lang_name: str):
