@@ -7,6 +7,8 @@
   "_RESET": "Reset",
   "_TYPING_TEST": "Typing Test",
   "_SELECT_LANGUAGES": "Select languages...",
+  "_DESCRIPTION": "How fast can you type? Find out today with a typing test!",
+  "_START_TEXT": "The test starts whenever you start typing.",
   "words": [
     "able", "about", "above", "act", "add", "after", "again",
     "against", "age", "ago", "air", "all", "also", "always",

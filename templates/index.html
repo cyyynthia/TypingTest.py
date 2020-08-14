@@ -1,8 +1,19 @@
 <html>
   <head>
     {% include "_head.html" %}
+    <title>{{ language['typing_test'] }}</title>
+    <meta content="{{ language['emoji'] }}" property="og:image" />
+    <link rel="icon" type="image/x-icon" href="{{ language['emoji'] }}">
+    <meta content="{{ language['typing_test'] }}" property="og:title" />
+
+    <meta content="{{ language['description'] }}" property="og:description" />
+    <meta content="{{ language['description'] }}" name="description" />
+    <meta property="og:locale" content="en_GB" />
   </head>
   <body class="github-font-standard">
+    <div class="box-container alizarin-flat message">
+      <p>Note: This site is still WIP, expect bugs and weird behaviours...</p>
+    </div>
     <div class="typing-test-container">
       <div class="title-container">
         <a href="/languages" class="flag-emoji tooltip" data-tooltip="{{ language['select_languages'] }}">
@@ -19,8 +30,8 @@
       </div>
       <div id="render-text"></div>
       <div id="your-attempt"></div>
+      <p class="emerald-text" id="start-text">{{ language['start_text'] }}</p>
       <textarea name="" id="your-typing" autofocus autocomplete="off"></textarea>
-      <p class="alizarin-text">Note: This site is still WIP, expect bugs and weird behaviours...</p>
 
       <script>
         let speedtest = new WordManager({

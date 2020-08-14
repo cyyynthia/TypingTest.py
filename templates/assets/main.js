@@ -89,6 +89,7 @@ class WordManager {
     if (!this.started) {
       this.start()
       this.started = true
+      document.getElementById("start-text").style.display = "none"
       console.log("Started")
     }
 

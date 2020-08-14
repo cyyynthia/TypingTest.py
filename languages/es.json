@@ -7,6 +7,8 @@
   "_RESET": "Reiniciar",
   "_TYPING_TEST": "Prueba de escritura",
   "_SELECT_LANGUAGES": "Seleccionar idiomas...",
+  "_DESCRIPTION": "¿Qué tan rápido puedes escribir? ¡Descúbrelo hoy con una prueba de mecanografía!",
+  "_START_TEXT": "La prueba comienza cuando comienzas a escribir.",
   "words": [
     "capaz", "sobre", "arriba", "actuar", "agregar", "después",
     "contra", "edad", "hace", "aire", "todos", "también", "siempre",

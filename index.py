@@ -27,6 +27,7 @@ for file in os.listdir("languages"):
                 "reset": lang_temp["_RESET"], "typing_test": lang_temp["_TYPING_TEST"],
                 "select_languages": lang_temp["_SELECT_LANGUAGES"],
                 "author": lang_temp["_author"], "emoji": lang_temp["emoji"],
+                "description": lang_temp["_DESCRIPTION"], "start_text": lang_temp["_START_TEXT"],
                 "language": lang_temp["language"], "language_url": lang_name
             }
 
