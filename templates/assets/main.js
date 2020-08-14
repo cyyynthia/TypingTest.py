@@ -7,6 +7,8 @@ class WordManager {
     if (!arg.render_text) this.render_text = "render-text"
 
     this.wordcount = 0
+    this.raw_charcount = 0
+    this.charcount = 0
     this.seconds = 0
     this.errors = 0
     this.character_length = 45
@@ -43,7 +45,9 @@ class WordManager {
       self.seconds++
       document.getElementById("seconds").innerText = 60 - self.seconds
       let wpm = Math.round(self.wordcount / (self.seconds / 60))
+      let cpm = Math.round(self.charcount / (self.seconds /60))
       document.getElementById("wpm").innerText = wpm
+      document.getElementById("cpm").innerText = cpm
 
       console.log(self.seconds)
       console.log(self.wordcount)
@@ -59,6 +63,8 @@ class WordManager {
   reset() {
     this.stop()
     this.wordcount = 0
+    this.raw_charcount = 0
+    this.charcount = 0
     this.seconds = 0
     this.errors = 0
 
@@ -98,12 +104,16 @@ class WordManager {
       }
 
       this.index++
+      this.charcount++
       let input_el = document.getElementById(this.render_text)
       input_el.innerText = this.current_string()
       el.innerHTML += char_typed
     } else {
       console.log("IF: false")
+
       this.errors++
+      this.raw_charcount++  // NOTE: This will be used later.. some time, idk
+
       el.innerHTML += `<span class="wrong">${char_typed}</span>`
 
       let errors_el = document.getElementById("errors")
