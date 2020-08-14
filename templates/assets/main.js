@@ -105,6 +105,8 @@ class WordManager {
 
       this.index++
       this.charcount++
+      this.raw_charcount++
+
       let input_el = document.getElementById(this.render_text)
       input_el.innerText = this.current_string()
       el.innerHTML += char_typed
@@ -112,7 +114,7 @@ class WordManager {
       console.log("IF: false")
 
       this.errors++
-      this.raw_charcount++  // NOTE: This will be used later.. some time, idk
+      this.raw_charcount++
 
       el.innerHTML += `<span class="wrong">${char_typed}</span>`
 

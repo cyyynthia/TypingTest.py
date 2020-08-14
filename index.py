@@ -15,46 +15,48 @@ app.config.update(
 
 
 # Fetch all languages to cache
-all_languages = []
-for g in os.listdir("languages"):
-    with open(f"languages/{g}") as f:
+all_languages = {}
+words_language = {}
+for file in os.listdir("languages"):
+    with open(f"languages/{file}") as f:
         lang_temp = json.load(f)
-        all_languages.append({
+        lang_name = file[:-5]
+        all_languages[lang_name] = {
+            "seconds": lang_temp["_SECONDS"], "errors": lang_temp["_ERRORS"],
+            "reset": lang_temp["_RESET"], "typing_test": lang_temp["_TYPING_TEST"],
+            "select_languages": lang_temp["_SELECT_LANGUAGES"],
             "author": lang_temp["_author"], "emoji": lang_temp["emoji"],
-            "language": lang_temp["language"], "language_url": g[:-5]
-        })
+            "language": lang_temp["language"], "language_url": lang_name
+        }
+
+        words_language[lang_name] = lang_temp["words"]
 
 
-def render_words(language: str = "en-us"):
-    try:
-        with open(f"languages/{language}.json") as f:
-            all_words = json.load(f)
-    except Exception:
+def validate_language(lang_name: str):
+    """ Validate if language is inside the language folder """
+    if lang_name not in [g for g in all_languages]:
         abort(404, "Language not found...")
-
-    return all_words
 
 
 @app.route("/")
 async def index_home():
-    lang = render_words()
     return await render_template(
-        "index.html", words=lang["words"], emoji=lang["emoji"]
+        "index.html", words=words_language["en-us"], language=all_languages["en-us"]
     )
 
 
 @app.route("/languages")
 async def index_select_language():
     return await render_template(
-        "languages.html", languages=all_languages
+        "languages.html", languages=[all_languages[g] for g in all_languages]
     )
 
 
 @app.route("/languages/<language>")
 async def index_home_lang(language: str):
-    lang = render_words(language=language)
+    validate_language(language)
     return await render_template(
-        "index.html", words=lang["words"], emoji=lang["emoji"]
+        "index.html", words=words_language[language], language=all_languages[language]
     )
 
 

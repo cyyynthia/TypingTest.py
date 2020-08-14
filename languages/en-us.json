@@ -2,6 +2,11 @@
   "_author": "AlexFlipnote#0001",
   "language": "English (US)",
   "emoji": "https://twemoji.maxcdn.com/2/svg/1f1fa-1f1f8.svg",
+  "_SECONDS": "Seconds",
+  "_ERRORS": "Errors",
+  "_RESET": "Reset",
+  "_TYPING_TEST": "Typing Test",
+  "_SELECT_LANGUAGES": "Select languages...",
   "words": [
     "able", "about", "above", "act", "add", "after", "again",
     "against", "age", "ago", "air", "all", "also", "always",

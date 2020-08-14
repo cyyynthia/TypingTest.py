@@ -37,17 +37,22 @@
   50% { opacity: 1; }
 }
 
-.title {
+.title-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
+  margin-bottom: 1em;
+  vertical-align: middle;
 }
 
-.title .flag-emoji {
-  width: 7.5rem;
-  margin-right: .25em;
+.title-container .title {
+  font-size: 4.7rem;
+  font-weight: bold;
+  margin-bottom: 0;
 }
+
+.title-container .flag-emoji { margin-right: 1em; }
+.title-container .flag-emoji img { width: 7rem; }
 
 #your-attempt {
   background: #303030;
