@@ -1,0 +1,20 @@
+<html>
+    <head>
+        {% include "_head.html" %}
+    </head>
+    <body class="github-font-standard">
+        <section class="container">
+            <h1>Choose a language:</h1>
+            <div class="flex-grid">
+                {% for i in languages %}
+                <div class="col-xs-3 select-lang">
+                    <a href="/languages/{{ i['language_url'] }}">
+                        <img src="{{ i['emoji'] }}" class="image">
+                        <p class="name">{{ i['language'] }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+              </div>
+        </section>
+    </body>
+</html>

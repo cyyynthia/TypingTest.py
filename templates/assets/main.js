@@ -41,11 +41,12 @@ class WordManager {
     let self = this
     self.interval_timer = setInterval(function(){
       self.seconds++
-      document.getElementById("seconds").innerText = self.seconds
+      document.getElementById("seconds").innerText = 60 - self.seconds
       let wpm = Math.round(self.wordcount / (self.seconds / 60))
       document.getElementById("wpm").innerText = wpm
 
       console.log(self.seconds)
+      console.log(self.wordcount)
       if (self.seconds >= 60) self.stop()
     }, 1000)
   }
@@ -57,15 +58,19 @@ class WordManager {
 
   reset() {
     this.stop()
-    this.index = 0
-    this.errors = 0
+    this.wordcount = 0
     this.seconds = 0
-    this.wpm = 0
+    this.errors = 0
+
+    this.letters = null
+    this.interval_timer = null
+
+    this.index = 0
     this.started = false
 
     document.getElementById(this.render_text).innerText = ""
     document.getElementById("your-attempt").innerText = ""
-    document.getElementById("seconds").innerText = 0
+    document.getElementById("seconds").innerText = 60
     document.getElementById("wpm").innerText = 0
     document.getElementById("errors").innerText = 0
 

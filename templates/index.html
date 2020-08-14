@@ -1,9 +1,6 @@
 <html>
   <head>
-    <title>TypingTest.py</title>
-    <link href="assets/modesta.css" type="text/css" rel="stylesheet">
-    <link href="assets/custom.css" type="text/css" rel="stylesheet">
-    <script src="assets/main.js" type="text/javascript" charset="utf-8"></script>
+    {% include "_head.html" %}
   </head>
   <body class="github-font-standard">
     <div class="typing-test-container">
@@ -12,7 +9,7 @@
         TypingTest.py
       </h1>
       <div class="score">
-        <p>Seconds: <span id="seconds">0</span></p>
+        <p>Seconds: <span id="seconds">60</span></p>
         <p>WPM: <span id="wpm">0</span></p>
         <p>Errors: <span id="errors">0</span></p>
         <button id="reset">Reset</button>

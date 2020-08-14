@@ -1,4 +1,5 @@
 import json
+import os
 import asyncio
 
 from quart import Quart, render_template, send_from_directory, abort
@@ -11,6 +12,17 @@ app.config.update(
     DEBUG=config["debug"],
     PROPAGATE_EXCEPTIONS=False
 )
+
+
+# Fetch all languages to cache
+all_languages = []
+for g in os.listdir("languages"):
+    with open(f"languages/{g}") as f:
+        lang_temp = json.load(f)
+        all_languages.append({
+            "author": lang_temp["_author"], "emoji": lang_temp["emoji"],
+            "language": lang_temp["language"], "language_url": g[:-5]
+        })
 
 
 def render_words(language: str = "en-us"):
@@ -26,6 +38,21 @@ def render_words(language: str = "en-us"):
 @app.route("/")
 async def index_home():
     lang = render_words()
+    return await render_template(
+        "index.html", words=lang["words"], emoji=lang["emoji"]
+    )
+
+
+@app.route("/languages")
+async def index_select_language():
+    return await render_template(
+        "languages.html", languages=all_languages
+    )
+
+
+@app.route("/languages/<language>")
+async def index_home_lang(language: str):
+    lang = render_words(language=language)
     return await render_template(
         "index.html", words=lang["words"], emoji=lang["emoji"]
     )

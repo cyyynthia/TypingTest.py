@@ -86,3 +86,20 @@
   background-color: #e74c3c;
   color: #fff;
 }
+
+.select-lang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-lang .image {
+  width: 100px;
+  height: 100px;
+  display: inline-block
+}
+
+.select-lang .name {
+  font-size: 22px;
+  font-weight: bold;
+}
