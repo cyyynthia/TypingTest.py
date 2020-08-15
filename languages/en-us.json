@@ -10,6 +10,8 @@
   "_DESCRIPTION": "How fast can you type? Find out today with a typing test!",
   "_START_TEXT": "The test starts whenever you start typing.",
   "_FINISH_WORD": "Finish the word",
+  "_FINISH_OVERLAY": "Finish",
+  "_SMALL_SCREEN": "Your screen is too small to take the typing test...",
   "words": [
     "able", "about", "above", "act", "add", "after", "again",
     "against", "age", "ago", "air", "all", "also", "always",

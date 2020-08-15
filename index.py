@@ -29,7 +29,8 @@ for file in os.listdir("languages"):
                 "author": lang_temp["_author"], "emoji": lang_temp["emoji"],
                 "description": lang_temp["_DESCRIPTION"], "start_text": lang_temp["_START_TEXT"],
                 "language": lang_temp["language"], "language_url": lang_name,
-                "finish_word": lang_temp["_FINISH_WORD"]
+                "finish_word": lang_temp["_FINISH_WORD"], "finish_overlay": lang_temp["_FINISH_OVERLAY"],
+                "small_screen": lang_temp["_SMALL_SCREEN"]
             }
 
             words_language[lang_name] = lang_temp["words"]

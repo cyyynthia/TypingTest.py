@@ -10,6 +10,8 @@
   "_DESCRIPTION": "Hoe snel kun jij typen? Ontdek het vandaag met de typetest!",
   "_START_TEXT": "De test start zodra je begint te typen.",
   "_FINISH_WORD": "Maak het woord af",
+  "_FINISH_OVERLAY": "Einde",
+  "_SMALL_SCREEN": "Je scherm is te klein om de typetest te maken...",
     "words": [
       "aan",
       "aarde",

@@ -10,16 +10,13 @@
     <meta content="{{ language['description'] }}" name="description" />
     <meta property="og:locale" content="en_GB" />
   </head>
-  <body class="github-font-standard">
-    <div class="box-container alizarin-flat message">
-      <p>Note: This site is still WIP, expect bugs and weird behaviours...</p>
-    </div>
+  <body class="github-font-standard" data-small-screen="{{ language['small_screen'] }}">
     <div class="typing-test-container">
       <div class="title-container">
         <a href="/languages" class="flag-emoji tooltip" data-tooltip="{{ language['select_languages'] }}">
           <img src="{{ language['emoji'] }}">
         </a>
-        <p class="title">{{ language['typing_test'] }}<span class="label sun-flower black-text" style="vertical-align: text-top; margin-top: 1.5em;">ALPHA</span></p>
+        <p class="title">{{ language['typing_test'] }}<span class="label sun-flower black-text" style="vertical-align: text-top; margin-top: 1.5em;">BETA</span></p>
       </div>
       <div class="score">
         <p>{{ language['seconds'] }}: <span id="seconds">60</span></p>
@@ -28,7 +25,7 @@
         <p>{{ language['errors'] }}: <span id="errors">0</span></p>
         <button id="reset">{{ language['reset'] }}</button>
       </div>
-      <div id="render-text"></div>
+    <div id="render-text" data-finish="{{ language['finish_overlay'] }}"></div>
       <textarea name="" id="your-attempt" autofocus autocomplete="off"></textarea>
       <p class="emerald-text" id="start-text">{{ language['start_text'] }}</p>
 

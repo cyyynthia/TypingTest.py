@@ -10,6 +10,8 @@
   "_DESCRIPTION": "¿Qué tan rápido puedes escribir? ¡Descúbrelo hoy con una prueba de mecanografía!",
   "_START_TEXT": "La prueba comienza cuando comienzas a escribir.",
   "_FINISH_WORD": "Termina la palabra",
+  "_FINISH_OVERLAY": "Tiempo",
+  "_SMALL_SCREEN": "Tu pantalla es demasiado pequeña para realizar la prueba de mecanografía...",
   "words": [
     "capaz", "sobre", "arriba", "actuar", "agregar", "después",
     "contra", "edad", "hace", "aire", "todos", "también", "siempre",

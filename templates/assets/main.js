@@ -101,6 +101,7 @@ class WordManager {
     document.getElementById("seconds").innerText = '0'
     this.pendingStop = false
     this.started = false
+    document.getElementById(this.render_text).classList.add("finish-anim")
   }
 
   reset() {
@@ -123,6 +124,7 @@ class WordManager {
     document.getElementById("seconds").innerText = 60
     document.getElementById("wpm").innerText = 0
     document.getElementById("errors").innerText = 0
+    document.getElementById(this.render_text).classList.remove("finish-anim")
 
     this.pickWords()
     this.render()
