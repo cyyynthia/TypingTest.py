@@ -205,13 +205,12 @@ class WordManager {
         })
         break
       default:
-        const typed = String.fromCharCode(pressed).toLowerCase()
         const typingFor = document.querySelector('.current .char:not(.alizarin-text):not(.emerald-text)')
 
         this.raw_charcount++
         if (!typingFor) {
           this.errors++
-        } else if (typingFor.innerText === typed) {
+        } else if (typingFor.innerText === event.key) {
           typingFor.classList.add('emerald-text')
           this.charcount++
         } else {
