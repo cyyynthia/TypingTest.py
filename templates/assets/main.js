@@ -71,7 +71,7 @@ class WordManager {
   }
 
   hasFinishedWord () {
-    return !!document.querySelector('.current .char:not(.alizarin-text):not(.emerald-text)')
+    return !document.querySelector('.current .char:not(.alizarin-text):not(.emerald-text)')
   }
 
   start() {
@@ -84,7 +84,7 @@ class WordManager {
       console.log(this.seconds)
       console.log(this.wordcount)
       if (this.seconds >= 60) this.maybeStop()
-    }, 1000) 
+    }, 1000)
   }
 
   maybeStop() {
@@ -213,7 +213,7 @@ class WordManager {
           this.errors++
         }
 
-        if (this.pendingStop && this.hasFinishedWord) this.stop()
+        if (this.pendingStop && this.hasFinishedWord()) this.stop()
         break
     }
 
