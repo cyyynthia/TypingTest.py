@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name":"TypingTest.py",
+      "name":"TypingTest",
       "script":"start.sh"
     }
   ]
