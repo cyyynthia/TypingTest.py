@@ -157,13 +157,15 @@ class WordManager {
           return
         }
 
-        this.wordcount++
-
         // Mark remaining of current word as error'd
         currentWord.querySelectorAll('.char:not(.alizarin-text):not(.emerald-text)').forEach(char => {
           char.classList.add('alizarin-text')
           this.errors++
         })
+
+        if (!currentWord.querySelector('.char.alizarin-text')) {
+          this.wordcount++
+        }
 
         // Mark next word as current
         currentWord.classList.remove('current')
@@ -175,7 +177,9 @@ class WordManager {
           currentWord.classList.remove('current')
           currentWord.previousElementSibling.classList.add('current')
           this.maybeScroll(currentWord, currentWord.previousElementSibling)
-          this.wordcount--
+          if (!document.querySelector('.current .char.alizarin-text')) {
+            this.wordcount--
+          }
           if (!event.ctrlKey) break
         }
         let toRemove = [ ...document.querySelectorAll('.current .char.alizarin-text, .current .char.emerald-text') ]
@@ -199,12 +203,13 @@ class WordManager {
         })
         break
       default:
+        const typed = String.fromCharCode(pressed).toLowerCase()
         const typingFor = document.querySelector('.current .char:not(.alizarin-text):not(.emerald-text)')
 
         this.raw_charcount++
         if (!typingFor) {
           this.errors++
-        } else if (typingFor.innerText === event.key) {
+        } else if (typingFor.innerText === typed) {
           typingFor.classList.add('emerald-text')
           this.charcount++
         } else {

@@ -2,9 +2,7 @@
   color: #fff;
   font-size: 32px;
   font-weight: bold;
-  min-height: 40px;
   min-width: 300px;
-  padding: .1em;
   position: relative;
   white-space: pre;
   width: 600px;
@@ -14,6 +12,7 @@
   flex-wrap: wrap;
   justify-content: center;
   height: 153px;
+  max-height: 153px;
   overflow: hidden;
   --scroll: 0;
 }
@@ -23,6 +22,8 @@
   padding: 0 4px;
   border-radius: 2px;
   transition: .2s transform;
+  height: 43px;
+  line-height: 43px;
   transform: translateY(calc(var(--scroll) * -51px));
 }
 
