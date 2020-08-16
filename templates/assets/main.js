@@ -1,11 +1,11 @@
 const SPACE = 32
 const BACKSPACE = 8
-const CANCELLED = [ 13, 33, 34, 35, 36, 37, 38, 39, 40]
-const IGNORED = [ 16, 17, 18, 37, 91, 93, 225 ]
+const CANCELLED = [13, 33, 34, 35, 36, 37, 38, 39, 40]
+const IGNORED = [16, 17, 18, 37, 91, 93, 186, 219, 225]
 
 class WordManager {
   constructor(dictionary, render_text) {
-    this.dictionary = dictionary || [ 'foo', 'bar' ]
+    this.dictionary = dictionary || ["foo", "bar"]
     this.render_text = render_text || "render-text"
 
     this.wordcount = 0
@@ -81,8 +81,7 @@ class WordManager {
       document.getElementById("wpm").innerText = Math.round(this.wordcount / (this.seconds / 60))
       document.getElementById("cpm").innerText = Math.round(this.charcount / (this.seconds / 60))
 
-      console.log(this.seconds)
-      console.log(this.wordcount)
+      console.log(`Seconds: ${this.seconds}\nWPM: ${this.wordcount}`)
       if (this.seconds >= 60) this.maybeStop()
     }, 1000)
   }
@@ -136,18 +135,18 @@ class WordManager {
     if (!this.started) {
       this.start()
       this.started = true
-      console.log("Started")
+      console.log("TypingTest started")
     }
 
     const pressed = event.which || event.key_code
-    console.log(pressed)
+    console.log(`Key pressed: ${pressed}`)
+
     if (CANCELLED.includes(pressed) || (event.ctrlKey && pressed === 65)) {
       event.preventDefault()
       return
     }
-    if (IGNORED.includes(pressed)) {
-      return
-    }
+
+    if (IGNORED.includes(pressed)) return
 
     const currentWord = document.querySelector('.current')
     switch (pressed) {
