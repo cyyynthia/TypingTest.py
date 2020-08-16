@@ -16,9 +16,8 @@
             <div class="flex-grid">
                 {% for i in languages | sort(attribute="language") %}
                 <div class="col-xs-3 select-lang">
-                    <a href="/languages/{{ i['language_url'] }}">
+                    <a href="/languages/{{ i['language_code'] }}" class="tooltip" data-tooltip="{{ i['language'] }}">
                         <img src="{{ i['emoji'] }}" class="image">
-                        <p class="name">{{ i['language'] }}</p>
                     </a>
                 </div>
                 {% endfor %}

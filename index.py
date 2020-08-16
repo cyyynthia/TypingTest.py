@@ -2,12 +2,14 @@ import json
 import os
 import asyncio
 
+from flaskext.markdown import Markdown
 from quart import Quart, render_template, send_from_directory, abort
 
 with open("config.json", "r") as f:
     config = json.load(f)
 
 app = Quart(__name__)
+Markdown(app)
 app.config.update(
     DEBUG=config["debug"],
     PROPAGATE_EXCEPTIONS=False
@@ -22,24 +24,17 @@ for file in os.listdir("languages"):
         with open(f"languages/{file}", encoding="utf-8") as f:
             lang_temp = json.load(f)
             lang_name = file[:-5]
+
             all_languages[lang_name] = {
-                "seconds": lang_temp["_SECONDS"], "errors": lang_temp["_ERRORS"],
-                "reset": lang_temp["_RESET"], "typing_test": lang_temp["_TYPING_TEST"],
-                "select_languages": lang_temp["_SELECT_LANGUAGES"],
-                "author": lang_temp["_author"], "emoji": lang_temp["emoji"],
-                "description": lang_temp["_DESCRIPTION"], "start_text": lang_temp["_START_TEXT"],
-                "language": lang_temp["language"], "language_url": lang_name,
-                "finish_word": lang_temp["_FINISH_WORD"], "finish_overlay": lang_temp["_FINISH_OVERLAY"],
-                "small_screen": lang_temp["_SMALL_SCREEN"]
+                word: lang_temp[word] for word in lang_temp if word != "words"
             }
 
             words_language[lang_name] = lang_temp["words"]
 
 
-def validate_language(lang_name: str):
-    """ Validate if language is inside the language folder """
-    if lang_name not in [g for g in all_languages]:
-        abort(404, "Language not found...")
+# Fetch README.md to cache
+with open("README.md", "r") as f:
+    readme_text = "\n".join(f.readlines()[1:])
 
 
 @app.route("/")
@@ -58,15 +53,29 @@ async def index_select_language():
 
 @app.route("/languages/<language>")
 async def index_home_lang(language: str):
-    validate_language(language)
+    if language not in [g for g in all_languages]:
+        abort(404, "Language not found...")
+
     return await render_template(
         "index.html", words=words_language[language], language=all_languages[language]
+    )
+
+
+@app.route("/about")
+async def index_about():
+    return await render_template(
+        "about.html", readme=readme_text
     )
 
 
 @app.route("/assets/<path:path>")
 async def send_assets(path):
     return await send_from_directory("templates/assets", path)
+
+
+@app.errorhandler(404)
+async def page_not_found(e):
+    return await render_template("error.html", error=e.description, error_code="404"), 404
 
 
 loop = asyncio.get_event_loop()
