@@ -29,12 +29,18 @@
       </div>
       <div class="score">
         <p>{{ language['_SECONDS'] }}: <span id="seconds">60</span></p>
-        <p>CPM: <span id="cpm">0</span></p>
-        <p>WPM: <span id="wpm">0</span></p>
+        <p class="tooltip" data-tooltip="Raw CPM: 0" id="cpm-tp">CPM: <span id="cpm">0</span></p>
+        <p class="tooltip" data-tooltip="Raw WPM: 0" id="wpm-tp">WPM: <span id="wpm">0</span></p>
         <p>{{ language['_ERRORS'] }}: <span id="errors">0</span></p>
         <button id="reset">{{ language['_RESET'] }}</button>
       </div>
-    <div id="render-text" data-finish="{{ language['_FINISH_OVERLAY'] }}"></div>
+      <div id="render-text" data-finish="{{ language['_FINISH_OVERLAY'] }}"></div>
+      <div id="final-score-container">
+        <h1 id="final-score">{{ language['_FINAL_FINAL_SCORE'] }}</h1>
+        <p id="final-text-win">{{ language['_FINAL_TEXT_WIN'] }}</p>
+        <p id="final-text-fail">{{ language['_FINAL_TEXT_LOSE'] }}</p>
+        <p class="emerald-text" id="final-break">{{ language['_FINAL_BREAK'] }}</p>
+      </div>
       <textarea name="" id="your-attempt" autofocus autocomplete="off" placeholder="{{ language['_START_TEXT'] }}"></textarea>
 
       <script>

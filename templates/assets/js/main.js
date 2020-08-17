@@ -36,6 +36,7 @@ class WordManager {
     this.dictionary = dictionary || ["foo", "bar"]
     this.render_text = render_text || "render-text"
 
+    this.raw_wordcount = 0
     this.wordcount = 0
     this.raw_charcount = 0
     this.charcount = 0
@@ -102,12 +103,27 @@ class WordManager {
     return !document.querySelector('.current .char:not(.alizarin-text):not(.emerald-text)')
   }
 
+  calcTypeTime(input) {
+    return Math.round(input / (this.seconds / 60))
+  }
+
+  updateCpmWpm() {
+    document.getElementById("wpm").innerText = this.calcTypeTime(this.wordcount)
+    document.getElementById("wpm-tp").setAttribute(
+      'data-tooltip', `Raw WPM: ${this.calcTypeTime(this.raw_wordcount)}`
+    )
+    document.getElementById("cpm").innerText = this.calcTypeTime(this.charcount)
+    document.getElementById("cpm-tp").setAttribute(
+      'data-tooltip', `Raw CPM: ${this.calcTypeTime(this.raw_charcount)}`
+    )
+  }
+
   start() {
     this.interval_timer = setInterval(() => {
       this.seconds++
       document.getElementById("seconds").innerText = 60 - this.seconds
-      document.getElementById("wpm").innerText = Math.round(this.wordcount / (this.seconds / 60))
-      document.getElementById("cpm").innerText = Math.round(this.charcount / (this.seconds / 60))
+
+      this.updateCpmWpm()
 
       console.log(`Seconds: ${this.seconds}\nWPM: ${this.wordcount}`)
       if (this.seconds >= 60) this.maybeStop()
@@ -129,10 +145,40 @@ class WordManager {
     this.pendingStop = false
     this.started = false
     document.getElementById(this.render_text).classList.add("finish-anim")
+
+    // Show final score
+    this.updateCpmWpm()
+
+    document.getElementById("your-attempt").style.display = "none"
+    const final_score = document.getElementById("final-score")
+    final_score.innerText = final_score.innerText
+      .replace("[CPM]", this.calcTypeTime(this.charcount))
+      .replace("[WPM]", this.calcTypeTime(this.wordcount))
+
+    if (this.errors == 0) {
+      // Flawless run
+      const win = document.getElementById("final-text-win")
+      win.innerText = win.innerText.replace("[WORDS]", this.wordcount)
+      win.style.display = "block"
+    } else {
+      // Lol the user made a mistake or two
+      const lose = document.getElementById("final-text-fail")
+      lose.innerText = lose.innerText
+        .replace("[RAW_CPM]", this.calcTypeTime(this.raw_charcount))
+        .replace("[WRONG]", this.errors)
+      lose.style.display = "block"
+    }
+
+    if (this.calcTypeTime(this.raw_charcount) > 300) {
+      document.getElementById("final-break").style.display = "block"
+    }
+
+    document.getElementById("final-score-container").style.display = "flex"
   }
 
   reset() {
     this.stop()
+    this.raw_wordcount = 0
     this.wordcount = 0
     this.raw_charcount = 0
     this.charcount = 0
@@ -151,6 +197,11 @@ class WordManager {
     document.getElementById("seconds").innerText = 60
     document.getElementById("wpm").innerText = 0
     document.getElementById("errors").innerText = 0
+    document.getElementById("your-attempt").style.display = "block"
+    document.getElementById("final-score-container").style.display = "none"
+    document.getElementById("final-text-win").style.display = "none"
+    document.getElementById("final-text-fail").style.display = "none"
+    document.getElementById("final-break").style.display = "none"
     document.getElementById(this.render_text).classList.remove("finish-anim")
 
     this.pickWords()
@@ -192,7 +243,10 @@ class WordManager {
         })
 
         if (!currentWord.querySelector('.char.alizarin-text')) {
+          this.raw_wordcount++
           this.wordcount++
+        } else {
+          this.raw_wordcount++
         }
 
         // Mark next word as current
@@ -206,6 +260,7 @@ class WordManager {
           currentWord.previousElementSibling.classList.add('current')
           this.maybeScroll(currentWord, currentWord.previousElementSibling)
           if (!document.querySelector('.current .char.alizarin-text')) {
+            this.raw_wordcount--
             this.wordcount--
           }
           if (!event.ctrlKey) break

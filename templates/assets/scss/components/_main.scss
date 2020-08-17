@@ -67,6 +67,24 @@
   }
 }
 
+#final-score-container {
+  display: none;
+  flex-direction: column;
+  margin-top: 1.75em;
+  max-height: 153px;
+  min-width: 300px;
+  width: 600px;
+
+  #final-score {
+    font-size: 26px;
+    margin-bottom: 1rem;
+  }
+
+  #final-text-win, #final-text-fail, #final-break { display: none; }
+
+  p { margin-bottom: 0; }
+}
+
 .title-container {
   display: flex;
   flex-direction: row;

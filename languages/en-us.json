@@ -14,6 +14,10 @@
   "_FINISH_WORD": "Finish the word",
   "_FINISH_OVERLAY": "Finish",
   "_SMALL_SCREEN": "Your screen is too small to take the typing test...",
+  "_FINAL_FINAL_SCORE": "Your final score: [CPM] (which is [WPM] WPM)",
+  "_FINAL_TEXT_WIN": "Good job, you typed all [WORDS] words flawlessly!",
+  "_FINAL_TEXT_LOSE": "Technically you had a score of [RAW_CPM] CPM, but you made [WRONG] errors, which were not counted for your actual score.",
+  "_FINAL_BREAK": "Take a 2 minute break, you've earned it.",
   "words": [
     "able", "about", "above", "act", "add", "after", "again",
     "against", "age", "ago", "air", "all", "also", "always",

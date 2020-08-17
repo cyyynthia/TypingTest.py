@@ -14,6 +14,10 @@
   "_FINISH_WORD": "Termina la palabra",
   "_FINISH_OVERLAY": "Tiempo",
   "_SMALL_SCREEN": "Tu pantalla es demasiado pequeña para realizar la prueba de mecanografía...",
+  "_FINAL_FINAL_SCORE": "Su puntuación final: [CPM] (que es [WPM] WPM)",
+  "_FINAL_TEXT_WIN": "Buen trabajo, escribiste todas las [WORDS] palabras sin problemas.",
+  "_FINAL_TEXT_LOSE": "Técnicamente, tuvo una puntuación de [RAW_CPM] CPM, pero cometió [WRONG] errores, que no se contabilizaron para su puntuación real.",
+  "_FINAL_BREAK": "Tómate un descanso de 2 minutos, te lo has ganado.",
   "words": [
     "capaz", "sobre", "arriba", "actuar", "agregar", "después",
     "contra", "edad", "hace", "aire", "todos", "también", "siempre",
