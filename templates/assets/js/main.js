@@ -148,8 +148,8 @@ class WordManager {
 
     // Show final score
     this.updateCpmWpm()
-
     document.getElementById("your-attempt").style.display = "none"
+
     const final_score = document.getElementById("final-score")
     final_score.innerText = final_score.innerText
       .replace("[CPM]", this.calcTypeTime(this.charcount))

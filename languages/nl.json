@@ -16,7 +16,7 @@
   "_SMALL_SCREEN": "Je scherm is te klein om de typetest te maken...",
   "_FINAL_FINAL_SCORE": "Uw uiteindelijke score: [CPM] (dit is [WPM] WPM)",
   "_FINAL_TEXT_WIN": "Goed gedaan, je hebt alle [WORDS] woorden foutloos getypt!",
-  "_FINAL_TEXT_LOSE": "Technisch gezien had je een score van [RAW_CPM] CPM, maar je maakte [WORDS] fouten, die niet werden meegeteld voor je werkelijke score.",
+  "_FINAL_TEXT_LOSE": "Technisch gezien had je een score van [RAW_CPM] CPM, maar je maakte [WRONG] fouten, die niet werden meegeteld voor je werkelijke score.",
   "_FINAL_BREAK": "Neem 2 minuten pauze, je hebt het verdiend.",
     "words": [
       "aan",
