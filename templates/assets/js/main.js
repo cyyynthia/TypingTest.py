@@ -18,7 +18,7 @@ function toggle_theme() {
   const theme = get_cookie("theme")
   let cookie_theme
 
-  if (theme == "dark") {
+  if (!theme || theme == "dark") {
     cookie_theme = "theme=light; Path=/"
     document.body.classList.add("light-theme")
     document.body.classList.remove("dark-theme")
