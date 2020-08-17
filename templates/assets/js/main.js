@@ -3,6 +3,34 @@ const BACKSPACE = 8
 const CANCELLED = [13, 33, 34, 35, 36, 37, 38, 39, 40]
 const IGNORED = [16, 17, 18, 37, 91, 93, 186, 219, 225]
 
+function get_cookie(name) {
+  let name_eq = name + "="
+  const cookies = document.cookie.split(";")
+  for (var i = 0; i < cookies.length; i++) {
+    let c = cookies[i]
+    while (c.charAt(0) == " ") c = c.substring(1, c.length)
+    if (c.indexOf(name_eq) == 0) return c.substring(name_eq.length, c.length)
+  }
+  return null
+}
+
+function toggle_theme() {
+  const theme = get_cookie("theme")
+  let cookie_theme
+
+  if (theme == "dark") {
+    cookie_theme = "theme=light; Path=/"
+    document.body.classList.add("light-theme")
+    document.body.classList.remove("dark-theme")
+  } else if (theme == "light") {
+    cookie_theme = "theme=dark; Path=/"
+    document.body.classList.add("dark-theme")
+    document.body.classList.remove("light-theme")
+  }
+
+  document.cookie = cookie_theme
+}
+
 class WordManager {
   constructor(dictionary, render_text) {
     this.dictionary = dictionary || ["foo", "bar"]

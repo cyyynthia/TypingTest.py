@@ -10,7 +10,8 @@
         <meta content="Select a language to type in..." name="description" />
         <meta property="og:locale" content="en_GB" />
     </head>
-    <body class="github-font-standard">
+    <body class="github-font-standard {{ theme }}">
+        {% include "_toggle_theme.html" %}
         <section class="container">
             <h1>Choose a language:</h1>
             <div class="flex-grid">

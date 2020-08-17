@@ -11,7 +11,8 @@
         <meta content="Some information about Typing test" name="description" />
         <meta property="og:locale" content="en_GB" />
     </head>
-    <body class="github-font-standard">
+    <body class="github-font-standard {{ theme }}">
+      {% include "_toggle_theme.html" %}
       <section class="container">
         <div class="about-container">
           <img src="{{ icon }}" width="72px" height="72px">

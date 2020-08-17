@@ -5,6 +5,12 @@ The project is made with **Python** as the backend and just **Vanilla JavaScript
 
 Do you feel like you're able to type fast and want to test yourself? Try today by visiting [https://typing.alexflipnote.dev](https://typing.alexflipnote.dev) and check for yourself. The test does support multiple languages as well. By simply clicking on the flag, you get redirected to a menu of multiple languages to choose from.
 
+Wish to contribute to this website or report any bugs? Feel free to make a **Pull Request/Issue** on [GitHub](https://github.com/AlexFlipnote/TypingTest) and help this project become better for every day that goes by ❤.
+
+## Requirements
+- Python 3.6 or up
+- SASS
+
 ## Contributors
 - [Bowser65](https://github.com/Bowser65) (Improving the word rendering and lag issues)
 

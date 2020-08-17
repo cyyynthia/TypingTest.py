@@ -10,7 +10,8 @@
     <meta content="{{ language['_DESCRIPTION'] }}" name="description" />
     <meta property="og:locale" content="en_GB" />
   </head>
-  <body class="github-font-standard" data-small-screen="{{ language['_SMALL_SCREEN'] }}">
+  <body class="github-font-standard {{ theme }}" data-small-screen="{{ language['_SMALL_SCREEN'] }}">
+    {% include "_toggle_theme.html" %}
     <div class="typing-test-container">
       <div class="title-container">
         <a href="/languages" class="flag-emoji tooltip" data-tooltip="{{ language['_SELECT_LANGUAGES'] }}">
