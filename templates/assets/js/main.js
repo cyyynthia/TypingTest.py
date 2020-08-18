@@ -118,6 +118,12 @@ class WordManager {
     )
   }
 
+  resetScore(el_id, attribute) {
+    const el = document.getElementById(el_id)
+    el.innerText = el.getAttribute(attribute)
+    el.style.display = "none"
+  }
+
   start() {
     this.interval_timer = setInterval(() => {
       this.seconds++
@@ -151,6 +157,7 @@ class WordManager {
     document.getElementById("your-attempt").style.display = "none"
 
     const final_score = document.getElementById("final-score")
+    final_score.style.display = "block"
     final_score.innerText = final_score.innerText
       .replace("[CPM]", this.calcTypeTime(this.charcount))
       .replace("[WPM]", this.calcTypeTime(this.wordcount))
@@ -191,6 +198,7 @@ class WordManager {
     this.index = 0
     this.started = false
     this.pendingStop = false
+    this.shouldScroll = false
 
     document.getElementById(this.render_text).innerText = ""
     document.getElementById("your-attempt").value = ""
@@ -198,11 +206,11 @@ class WordManager {
     document.getElementById("wpm").innerText = 0
     document.getElementById("errors").innerText = 0
     document.getElementById("your-attempt").style.display = "block"
-    document.getElementById("final-score-container").style.display = "none"
-    document.getElementById("final-text-win").style.display = "none"
-    document.getElementById("final-text-fail").style.display = "none"
-    document.getElementById("final-break").style.display = "none"
     document.getElementById(this.render_text).classList.remove("finish-anim")
+    document.getElementById("final-score-container").style.display = "none"
+    this.resetScore("final-score", "data-text")
+    this.resetScore("final-text-win", "data-text")
+    this.resetScore("final-text-fail", "data-text")
 
     this.pickWords()
     this.render()

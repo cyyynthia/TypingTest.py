@@ -36,9 +36,9 @@
       </div>
       <div id="render-text" data-finish="{{ language['_FINISH_OVERLAY'] }}"></div>
       <div id="final-score-container">
-        <h1 id="final-score">{{ language['_FINAL_FINAL_SCORE'] }}</h1>
-        <p id="final-text-win">{{ language['_FINAL_TEXT_WIN'] }}</p>
-        <p id="final-text-fail">{{ language['_FINAL_TEXT_LOSE'] }}</p>
+        <h1 id="final-score" data-text="{{ language['_FINAL_FINAL_SCORE'] }}">{{ language['_FINAL_FINAL_SCORE'] }}</h1>
+        <p id="final-text-win" data-text="{{ language['_FINAL_TEXT_WIN'] }}">{{ language['_FINAL_TEXT_WIN'] }}</p>
+        <p id="final-text-fail" data-text="{{ language['_FINAL_TEXT_LOSE'] }}">{{ language['_FINAL_TEXT_LOSE'] }}</p>
         <p class="emerald-text" id="final-break">{{ language['_FINAL_BREAK'] }}</p>
       </div>
       <textarea name="" id="your-attempt" autofocus autocomplete="off" placeholder="{{ language['_START_TEXT'] }}"></textarea>

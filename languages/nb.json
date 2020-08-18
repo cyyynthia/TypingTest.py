@@ -14,7 +14,7 @@
   "_FINISH_WORD": "Fullfør ordet",
   "_FINISH_OVERLAY": "Mål",
   "_SMALL_SCREEN": "Skjermen din er for liten til å ta skrivetesten...",
-  "_FINAL_FINAL_SCORE": "Din endelige poengsum: [CPM] (som er [WPM] WPM)",
+  "_FINAL_FINAL_SCORE": "Din endelige poengsum: [CPM] CPM (som er [WPM] WPM)",
   "_FINAL_TEXT_WIN": "Bra jobb, du skrev alle [WORDS] ord feilfritt!",
   "_FINAL_TEXT_LOSE": "Teknisk sett hadde du en poengsum på [RAW_CPM] CPM, men du gjorde [WRONG] feil, som ikke ble talt for din faktiske poengsum.",
   "_FINAL_BREAK": "Ta en 2-minutters pause, du har fortjent det.",
