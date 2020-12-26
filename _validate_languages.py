@@ -22,8 +22,13 @@ for file in os.listdir("languages"):
             if key not in [g for g in lang]:
                 raise KeyError(f"Missing JSON key in {file}: {key}")
 
+        words_failed = []
         for word in lang["words"]:
             if re.compile("(.* .*)").search(word):
-                raise KeyError(f"You can't have 2 words inside a string | {word} ({file})")
+                words_failed.append(word)
+
+        if words_failed:
+            all_words_failed = ", ".join(words_failed)
+            raise KeyError(f"You can't have 2 words inside a string ({file}) | {all_words_failed}")
 
 print("All checks passed :)")
