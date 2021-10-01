@@ -12,7 +12,7 @@ Wish to contribute to this website or report any bugs? Feel free to make a **Pul
 - SASS
 
 ## Contributors
-- [Bowser65](https://github.com/Bowser65) (Improving the word rendering and lag issues)
+- [Cynthia](https://github.com/cyyynthia) (Improving the word rendering and lag issues)
 
 ## FAQ
 Q: What does CPM and WPM mean?<br>
