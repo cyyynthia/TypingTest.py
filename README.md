@@ -1,5 +1,5 @@
 # TypingTest
-TypingTest is a website where you can test yourself on how fast you can type in both `CPM` and `WPM`. The goal of the "game" is to type as fast as possible within a duration of **1 minute**.
+TypingTest is a website where you can test yourself on how fast you can type in both `CPM` and `WPM`. The goal of the "game" is to type as fast as possible within a duration of **1 minute** (60 seconds, if you didn't know).
 
 The project is made with **Python** as the backend and just **Vanilla JavaScript** as the frontend handler of the typing test. Mostly this was built to test how I can make a "game" for a website without needing a lot of backend rendering, except for translation and such.
 
@@ -12,7 +12,7 @@ Wish to contribute to this website or report any bugs? Feel free to make a **Pul
 - SASS
 
 ## Contributors
-- [Cynthia](https://github.com/cyyynthia) (Improving the word rendering and lag issues)
+- [Bowser65](https://github.com/Bowser65) (Improving the word rendering and lag issues)
 
 ## FAQ
 Q: What does CPM and WPM mean?<br>
