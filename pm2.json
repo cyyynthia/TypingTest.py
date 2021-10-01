@@ -1,8 +1,8 @@
 {
   "apps": [
     {
-      "name":"TypingTest",
-      "script":"start.sh"
+      "name": "TypingTest",
+      "script": "start.sh"
     }
   ]
 }
